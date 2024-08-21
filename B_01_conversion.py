@@ -167,6 +167,9 @@ def mass_conv():
 
 # main routine goes here
 
+# display headings
+statement_generator(statement="Conversion program", decoration="-")
+
 # Display instructions if requested
 want_instructions = input("press <enter> to read the instructions "
                           "or an key to continue")
