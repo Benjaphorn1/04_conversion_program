@@ -42,27 +42,27 @@ def num_check(question):
 # ask users for their sort of conversion (distance/ time / volume / xxx)
 def get_conversiontype():
     while True:
-        response = input("Conversion Type: ").lower()
+        response = input("Conversion Type (mass / time / distance): ").lower()
 
         # check if its exit code
         if response == "xxx":
             return response
 
         # check if its time
-        elif response in ['time']:
+        elif response in ['time', 't']:
             return "time"
 
         # check if its distance
-        elif response in ['distance', 'dist']:
+        elif response in ['distance', 'dist', 'd']:
             return "distance"
 
         # check if its mass
-        elif response in ['mass']:
+        elif response in ['mass', 'm']:
             return "mass"
 
         # if response is invalid output an error
         else:
-            print("please enter a valid file type")
+            print("please enter one of mass, time or distance")
 
 
 # Distance conversion code
@@ -107,7 +107,7 @@ def time_conv():
         "m": 60,
         "hours": 1,
         "hrs": 1,
-        "hr":1,
+        "hr": 1,
         "h": 1,
     }
 
@@ -166,11 +166,11 @@ def mass_conv():
 
 
 # main routine goes here
-
-# display headings
+# display heading
 statement_generator(statement="Conversion program", decoration="-")
 
 # Display instructions if requested
+print()
 want_instructions = input("press <enter> to read the instructions "
                           "or an key to continue")
 
@@ -179,6 +179,8 @@ if want_instructions == "":
 
 # Output answer from conversion type
 while True:
+
+    print()
 
     # ask user what they want to convert to / from
     conversiontype = get_conversiontype()
@@ -191,14 +193,17 @@ while True:
 
     if conversiontype == "distance":
         distance_ans = distance_conv()
+        print()
         print(distance_ans)
 
     elif conversiontype == "time":
         time_conv_ans = time_conv()
+        print()
         print(time_conv_ans)
 
     elif conversiontype == "mass":
         mass_conv_ans = mass_conv()
+        print()
         print(mass_conv_ans)
 
 print()
